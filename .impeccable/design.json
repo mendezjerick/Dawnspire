@@ -1,0 +1,277 @@
+{
+  "title": "Design System: Dawnspire Inc.",
+  "generatedAt": "2026-11-19T09:02:10.4005601Z",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "displayName": "Warm Paper",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.004 105)",
+          "oklch(26% 0.004 105)",
+          "oklch(37% 0.004 105)",
+          "oklch(48% 0.004 105)",
+          "oklch(59% 0.004 105)",
+          "oklch(70% 0.004 105)",
+          "oklch(82% 0.004 105)",
+          "oklch(95% 0.004 105)"
+        ]
+      },
+      "signal-dark": {
+        "displayName": "Deep Signal",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.18 35)",
+          "oklch(26% 0.18 35)",
+          "oklch(37% 0.18 35)",
+          "oklch(48% 0.18 35)",
+          "oklch(59% 0.18 35)",
+          "oklch(70% 0.18 35)",
+          "oklch(82% 0.18 35)",
+          "oklch(95% 0.18 35)"
+        ]
+      },
+      "rail-paper": {
+        "displayName": "Rail Paper",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.003 105)",
+          "oklch(26% 0.003 105)",
+          "oklch(37% 0.003 105)",
+          "oklch(48% 0.003 105)",
+          "oklch(59% 0.003 105)",
+          "oklch(70% 0.003 105)",
+          "oklch(82% 0.003 105)",
+          "oklch(95% 0.003 105)"
+        ]
+      },
+      "white": {
+        "displayName": "White",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "media-charcoal": {
+        "displayName": "Journal Charcoal",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.004 180)",
+          "oklch(26% 0.004 180)",
+          "oklch(37% 0.004 180)",
+          "oklch(48% 0.004 180)",
+          "oklch(59% 0.004 180)",
+          "oklch(70% 0.004 180)",
+          "oklch(82% 0.004 180)",
+          "oklch(95% 0.004 180)"
+        ]
+      },
+      "signal": {
+        "displayName": "Signal Red-Orange",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.2 35)",
+          "oklch(26% 0.2 35)",
+          "oklch(37% 0.2 35)",
+          "oklch(48% 0.2 35)",
+          "oklch(59% 0.2 35)",
+          "oklch(70% 0.2 35)",
+          "oklch(82% 0.2 35)",
+          "oklch(95% 0.2 35)"
+        ]
+      },
+      "ink": {
+        "displayName": "Technical Ink",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.004 200)",
+          "oklch(26% 0.004 200)",
+          "oklch(37% 0.004 200)",
+          "oklch(48% 0.004 200)",
+          "oklch(59% 0.004 200)",
+          "oklch(70% 0.004 200)",
+          "oklch(82% 0.004 200)",
+          "oklch(95% 0.004 200)"
+        ]
+      },
+      "muted": {
+        "displayName": "Quiet Grey",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.004 155)",
+          "oklch(26% 0.004 155)",
+          "oklch(37% 0.004 155)",
+          "oklch(48% 0.004 155)",
+          "oklch(59% 0.004 155)",
+          "oklch(70% 0.004 155)",
+          "oklch(82% 0.004 155)",
+          "oklch(95% 0.004 155)"
+        ]
+      },
+      "line": {
+        "displayName": "Fine Rule",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.004 105)",
+          "oklch(26% 0.004 105)",
+          "oklch(37% 0.004 105)",
+          "oklch(48% 0.004 105)",
+          "oklch(59% 0.004 105)",
+          "oklch(70% 0.004 105)",
+          "oklch(82% 0.004 105)",
+          "oklch(95% 0.004 105)"
+        ]
+      }
+    },
+    "motion": [
+      {
+        "value": ".25s",
+        "name": "state-transition",
+        "purpose": "Control state changes"
+      },
+      {
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "name": "architectural-ease",
+        "purpose": "Hero and project entrance"
+      },
+      {
+        "value": "1.9s",
+        "name": "hero-reveal",
+        "purpose": "Scale and blur reveal"
+      },
+      {
+        "value": ".55s",
+        "name": "content-in",
+        "purpose": "Project content entrance"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      },
+      {
+        "name": "small-mobile",
+        "value": "390px"
+      }
+    ],
+    "shadows": [
+      {
+        "value": "0 35px 55px #343f3629",
+        "name": "workspace-artwork",
+        "purpose": "Concept workspace depth"
+      },
+      {
+        "value": "0 30px 50px #0005",
+        "name": "dashboard-artwork",
+        "purpose": "Analytics and workflow depth"
+      },
+      {
+        "value": "20px 30px 40px #232e2326",
+        "name": "phone-artwork",
+        "purpose": "Concept device depth"
+      }
+    ]
+  },
+  "schemaVersion": 2,
+  "components": [
+    {
+      "description": "Square project action",
+      "html": "<button class=\"ds-control ds-primary\">Explore project +</button>",
+      "kind": "button",
+      "css": ".ds-primary{font:600 15px Barlow,sans-serif;padding:17px 23px;min-height:52px;border:0;border-radius:0;background:var(--ink,#181a1b);color:#fff;cursor:pointer;transition:background .25s,color .25s}.ds-primary:hover{background:var(--signal,#f14b28);color:var(--ink,#181a1b)}.ds-control:focus-visible{outline:2px solid var(--signal,#f14b28);outline-offset:5px}",
+      "name": "Primary Button",
+      "refersTo": "button-primary"
+    },
+    {
+      "description": "Contact action on signal",
+      "html": "<button class=\"ds-control ds-light\">Prepare inquiry +</button>",
+      "kind": "button",
+      "css": ".ds-light{font:600 15px Barlow,sans-serif;padding:17px 23px;min-height:52px;border:0;border-radius:0;background:var(--paper,#f5f5f2);color:var(--ink,#181a1b);cursor:pointer;transition:background .25s,color .25s}.ds-light:hover{background:var(--ink,#181a1b);color:var(--paper,#f5f5f2)}.ds-control:focus-visible{outline:2px solid var(--signal,#f14b28);outline-offset:5px}",
+      "name": "Light Button",
+      "refersTo": "button-light"
+    },
+    {
+      "html": "<input class=\"ds-search\" aria-label=\"Find a project\" placeholder=\"Find a project\">",
+      "kind": "input",
+      "description": "Unfilled search field",
+      "name": "Search",
+      "css": ".ds-search{font:12px Barlow,sans-serif;width:125px;background:transparent;border:0;border-bottom:1px solid transparent;padding:8px 0;border-radius:0;color:var(--ink,#181a1b)}.ds-search:focus{outline:none;border-color:var(--signal,#f14b28)}"
+    },
+    {
+      "html": "<span class=\"ds-tag\">TypeScript</span>",
+      "kind": "chip",
+      "description": "Informational square tag",
+      "name": "Technology Tag",
+      "css": ".ds-tag{display:inline-block;font:10px Barlow,sans-serif;padding:5px 9px;background:#e6e7e1;color:#555d4d;border-radius:0}"
+    },
+    {
+      "description": "Active destination in the right rail",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-control\" href=\"#projects\" aria-current=\"location\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" aria-hidden=\"true\"><path d=\"m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5\"/></svg>Projects</a></nav>",
+      "kind": "nav",
+      "css": ".ds-nav{width:72px;padding:0 8px;background:var(--paper,#f5f5f2)}.ds-nav a{font:600 11px Barlow,sans-serif;position:relative;display:flex;flex-direction:column;gap:7px;align-items:center;justify-content:center;min-height:64px;background:#e9e9e5;color:var(--ink,#181a1b);text-decoration:none}.ds-nav svg{color:var(--signal,#f14b28)}.ds-nav a:after{content:\"\";position:absolute;right:-8px;top:15px;bottom:15px;width:3px;background:var(--signal,#f14b28)}.ds-nav a:hover{background:#d9dad6}.ds-control:focus-visible{outline:2px solid var(--signal,#f14b28);outline-offset:5px}",
+      "name": "Right Rail Item",
+      "refersTo": "navigation-rail"
+    },
+    {
+      "html": "<button class=\"ds-control ds-project\"><small>01</small><strong>NEXUS</strong><span>Web platforms</span></button>",
+      "kind": "card",
+      "description": "Open-layout selected project entry",
+      "name": "Project Index",
+      "css": ".ds-project{font-family:Barlow,sans-serif;width:240px;text-align:left;display:grid;gap:3px;border:0;border-top:2px solid var(--signal,#f14b28);background:none;padding:15px 0;cursor:pointer}.ds-project strong{font:600 23px \"Barlow Condensed\",sans-serif;color:var(--signal-dark,#bd3216)}.ds-project small,.ds-project span{font-size:10px;color:#7a8171}.ds-project:hover{border-color:var(--ink,#181a1b)}.ds-control:focus-visible{outline:2px solid var(--signal,#f14b28);outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "overview": "A cinematic technical portfolio for Dawnspire Inc., a software development company. The user-pinned Endfield reference informs the architectural scale, condensed typography, registration marks, and fixed right navigation. Red-orange punctuates paper, charcoal, and grey.\n\nLarge editorial surfaces carry the atmosphere; compact controls keep exploration direct. Flat rules organize content while perspective and shadows chiefly belong to conceptual software artwork. Three founder profiles retain explicit placeholder labels.",
+    "dos": [
+      "Do keep navigation on the right at every implemented breakpoint.",
+      "Do pair Barlow Condensed display type with Barlow functional text.",
+      "Do preserve the three-founder composition and explicit placeholder labels.",
+      "Do respect reduced motion and the visible motion toggle."
+    ],
+    "keyCharacteristics": [
+      "Architectural imagery and oversized condensed lettering.",
+      "Fixed right navigation with a red-orange active signal.",
+      "Square functional controls and fine technical rules.",
+      "Explicitly illustrative projects, media, timelines, and portraits."
+    ],
+    "northStar": "The Architectural Signal",
+    "rules": [
+      {
+        "section": "colors",
+        "name": "The Signal Rule",
+        "body": "Use red-orange for active states, signature punctuation, and deliberate large signal fields."
+      },
+      {
+        "section": "layout",
+        "name": "The Right Rail Rule",
+        "body": "Keep navigation fixed to the right and reserve its width in the main content."
+      },
+      {
+        "section": "elevation",
+        "name": "The Artwork Depth Rule",
+        "body": "Keep structural surfaces flat; reserve dramatic shadows and perspective for conceptual product illustrations."
+      }
+    ],
+    "donts": [
+      "Don't introduce a competing brand accent outside red-orange and established neutrals.",
+      "Don't turn structural controls into pills.",
+      "Don't present concepts, stock photographs, or placeholder biographies as company achievements.\r"
+    ]
+  }
+}
