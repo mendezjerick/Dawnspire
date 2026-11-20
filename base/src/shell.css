@@ -67,3 +67,13 @@
 .acct-form { display: grid; gap: 22px; }
 .acct-form .btn { justify-self: start; }
 @media (max-width: 760px) { .acct { grid-template-columns: 1fr; } }
+
+/* Phone tap targets: at least 40px without changing the look. */
+@media (max-width: 760px) {
+  .date-nav button { width: 40px; height: 40px; }
+  .date-nav strong { min-width: 0; font-size: 11px; }
+  .tabs button { min-height: 40px; padding-inline: 4px; }
+  .rail-foot { margin-inline: 0; }
+  .rail-signout { width: 100%; }
+  .page-title { font-size: 44px; }
+}

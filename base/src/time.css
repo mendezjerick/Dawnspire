@@ -62,3 +62,22 @@ button.tm-cell:hover { outline: 1px solid var(--ink); }
 .at-export .btn { gap: 8px; text-decoration: none; }
 .at-export .hint { align-self: center; }
 @media (max-width: 900px) { .at-export { grid-template-columns: 1fr 1fr; } .at-export .ov-h2, .at-export .hint { grid-column: 1 / -1; } }
+
+/* Phones: pin the member column and let the days swipe beside it. */
+.tm-swipe { display: none; }
+@media (max-width: 760px) {
+  .tm-grid.week { min-width: 660px; }
+  .tm-grid.month { min-width: 860px; }
+  .tm-name-h { width: 116px; position: sticky; left: 0; z-index: 2; background: var(--paper); }
+  .tm-name { position: sticky; left: 0; z-index: 1; background: var(--paper); font-size: 16px; padding-right: 8px !important; box-shadow: 1px 0 0 var(--line); }
+  .tm-grid tr.me .tm-name { background: var(--white); }
+  .tm-name small { display: block; margin: 2px 0 0; }
+  .tm-total-h { width: 84px; }
+  .tm-cell { padding: 0 6px; }
+  .tm-cell-main { font-size: 15px; }
+  .tm-swipe { display: block; font-size: 11px; color: var(--muted); margin: -6px 0 10px; }
+  .tm-bar { gap: 8px; }
+  .at-export { grid-template-columns: 1fr; }
+  .at-rows li, .at-add { gap: 6px; }
+  .at-rows b { width: auto; }
+}

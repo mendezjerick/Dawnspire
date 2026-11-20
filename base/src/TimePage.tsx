@@ -69,6 +69,7 @@ export function TimePage({ user, title = 'Time', hrMode = false, onEditDay }: { 
       </div>
 
       {error && <p className="notice error" role="alert">{error}</p>}
+      <p className="tm-swipe">Swipe sideways to see every day.</p>
       {!grid ? <div className="skeleton" style={{ height: 320 }} /> : people.length === 0 ? <p className="notice">No members yet.</p> : (
         <div className="tm-scroll">
           <table className={`tm-grid ${view}`}>

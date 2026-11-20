@@ -72,3 +72,5 @@ html { scroll-behavior: smooth; }
 .link-btn { text-decoration: underline; text-underline-offset: 3px; color: var(--muted); font-size: 12px; }
 .link-btn:hover { color: var(--ink); }
 .boot { min-height: 100svh; background: var(--paper); }
+/* Never let a stray pixel make the page drift sideways on phones. */
+html { overflow-x: clip; }

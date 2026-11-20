@@ -54,7 +54,7 @@ li.open .ed-num { color: var(--signal-dark); }
 .ed-frame iframe { border: 0; background: var(--paper); }
 /* Desktop renders the site at 1440px and scales it to fit; phone renders at 390px. */
 .ed-frame.desktop iframe { width: 1440px; height: calc(var(--ed-h, 600px) / var(--ed-scale, .5)); transform: scale(var(--ed-scale, .5)); transform-origin: top center; flex: none; }
-.ed-frame.phone iframe { width: 390px; height: 100%; }
+.ed-frame.phone iframe { width: 390px; height: calc(var(--ed-h, 600px) / var(--ed-scale, 1)); transform: scale(var(--ed-scale, 1)); transform-origin: top center; flex: none; }
 
 /* Stacked on narrow screens: back to normal page scrolling. */
 @media (max-width: 1200px) {
@@ -64,3 +64,16 @@ li.open .ed-num { color: var(--signal-dark); }
   .ed-frame { height: 70svh; flex: none; }
 }
 @media (max-height: 640px) and (min-width: 1201px) { .ed-page { height: auto; min-height: 640px; } }
+
+/* Phones: tabs scroll sideways if they don't fit, the preview toolbar wraps. */
+@media (max-width: 760px) {
+  .ed-tabs { gap: 18px; overflow-x: auto; scrollbar-width: none; }
+  .ed-tabs::-webkit-scrollbar { display: none; }
+  .ed-tabs button { flex: none; }
+  .ed-preview-bar { flex-wrap: wrap; gap: 6px 16px; }
+  .ed-preview-bar > span { width: 100%; }
+  .ed-fields { padding: 4px 4px 20px 8px; }
+  .ed-phase { grid-template-columns: 1fr 1fr; }
+  .ed-phase input:first-child { grid-column: 1 / -1; }
+  .ed-publish { justify-content: flex-start; }
+}

@@ -74,21 +74,26 @@ export function SiteEditor() {
   const box = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(0.5);
   const deviceRef = useRef<'desktop' | 'phone'>('desktop');
+  const boxRef = useRef({ w: 0, h: 0 });
   // Tell the preview how much it is scaled so wheel scrolling feels normal.
   const postScale = useCallback(() => {
-    frame.current?.contentWindow?.postMessage({ type: 'dawnspire-scale', scale: deviceRef.current === 'desktop' ? scaleRef.current : 1 }, SITE_ORIGIN);
+    frame.current?.contentWindow?.postMessage({ type: 'dawnspire-scale', scale: scaleRef.current }, SITE_ORIGIN);
   }, []);
-  // Scale the 1440px desktop preview to the panel width.
+  // Both previews render at their real width (1440 desktop, 390 phone) and scale down to fit the pane.
+  const applyScale = useCallback(() => {
+    const el = box.current;
+    if (!el || !boxRef.current.w) return;
+    const target = deviceRef.current === 'desktop' ? 1440 : 390;
+    scaleRef.current = Math.min(1, boxRef.current.w / target);
+    el.style.setProperty('--ed-scale', String(scaleRef.current));
+    el.style.setProperty('--ed-h', `${boxRef.current.h}px`);
+    postScale();
+  }, [postScale]);
   useEffect(() => {
     const el = box.current; if (!el) return;
-    const ro = new ResizeObserver(([e]) => {
-      scaleRef.current = Math.min(1, e.contentRect.width / 1440);
-      el.style.setProperty('--ed-scale', String(scaleRef.current));
-      el.style.setProperty('--ed-h', `${e.contentRect.height}px`);
-      postScale();
-    });
+    const ro = new ResizeObserver(([e]) => { boxRef.current = { w: e.contentRect.width, h: e.contentRect.height }; applyScale(); });
     ro.observe(el); return () => ro.disconnect();
-  }, []);
+  }, [applyScale]);
 
   const load = useCallback(async () => {
     try {
@@ -112,7 +117,7 @@ export function SiteEditor() {
     addEventListener('message', onMsg);
     return () => removeEventListener('message', onMsg);
   }, [drafts, section, sendPreview, postScale]);
-  useEffect(() => { deviceRef.current = device; postScale(); }, [device, postScale]);
+  useEffect(() => { deviceRef.current = device; applyScale(); }, [device, applyScale]);
   useEffect(() => { sendPreview(drafts); }, [drafts, sendPreview]);
   useEffect(() => { sendPreview(drafts, SECTIONS.find(s => s.key === section)!.anchor); setOpen(0); }, [section]); // eslint-disable-line react-hooks/exhaustive-deps
 
