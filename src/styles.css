@@ -64,3 +64,29 @@ a.content-disclosure{display:inline-flex;align-items:center;gap:6px;color:inheri
 .hero-word h1{width:max-content;max-width:100%}
 .hero-word h1>.word-inc{right:auto;left:100%;margin-left:10px;white-space:nowrap}
 @media(max-width:760px){.hero-word h1>.word-inc{margin-left:4px}}
+/* Motto band. Wide screens: one static row as before. Up to 1200px: a slow seamless ticker so both phrases are seen in full. */
+.banner-track{display:flex;width:100%}
+.banner-group{display:flex;align-items:center;justify-content:space-around;gap:55px;flex:1 0 100%;min-width:max-content}
+.banner-group+.banner-group{display:none}
+@media(max-width:1200px){
+.signal-banner{display:block}
+.banner-track{width:max-content;animation:banner-ticker 18s linear infinite}
+.banner-group{flex:none;gap:27px;padding-right:27px;justify-content:flex-start}
+.banner-group+.banner-group{display:flex}
+html[data-motion=off] .banner-track{animation:none;width:100%}
+html[data-motion=off] .banner-group{flex-direction:column;align-items:flex-start;gap:4px;padding:0 6%;min-width:0;font-size:clamp(34px,11vw,49px)}
+html[data-motion=off] .banner-group .banner-symbol,html[data-motion=off] .banner-group+.banner-group{display:none}
+}
+@media(max-width:1200px) and (prefers-reduced-motion:reduce){
+.banner-track{animation:none;width:100%}
+.banner-group{flex-direction:column;align-items:flex-start;gap:4px;padding:0 6%;min-width:0;font-size:clamp(34px,11vw,49px)}
+.banner-group .banner-symbol,.banner-group+.banner-group{display:none}
+}
+@keyframes banner-ticker{to{transform:translateX(-50%)}}
+/* Non-affiliation notice. */
+.affiliation-note{margin-top:22px;max-width:44ch;font-size:12px;line-height:1.55;color:#181b18}
+.site-fineprint{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;padding:0 0 22px;font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#181b18b3}
+.site-fineprint>p{margin:0}
+.site-fineprint .art-credit{padding:0}
+.hero-bottom .sample-note{max-width:260px;text-align:right;line-height:1.5}
+@media(max-width:760px){.affiliation-note{font-size:11px}.site-fineprint{flex-direction:column;font-size:8px}.hero-bottom .sample-note{max-width:120px;font-size:7px}}

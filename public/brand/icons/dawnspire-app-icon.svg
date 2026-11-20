@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="t">
+<title id="t">Dawnspire app icon</title>
+<rect width="512" height="512" fill="#181a1b"/>
+<g transform="translate(106 143.5) scale(1.875)"><path class="stairs" fill="#f5f5f2" d="M0 120V80H40V40H80V0H120L120.5 0.5H159.5V79.793L120 119.293V120Z"/>
+<path class="side" fill="#f14b28" d="M80 40L120 0H160V80L120 120V40Z"/></g>
+</svg>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dawnspire Brand Assets</title>
-<link rel="icon" type="image/svg+xml" href="/brand/dawnspire-favicon.svg">
+<title>Dawnspire Brand Kit</title>
+<link rel="icon" type="image/svg+xml" href="/brand/icons/dawnspire-favicon.svg">
 <link rel="stylesheet" href="/assets/fonts.css">
 <style>
 :root{--ink:#181a1b;--paper:#f5f5f2;--signal:#f14b28;--line:#d9dad6}
@@ -12,46 +12,52 @@
 body{margin:0;font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink)}
 header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px 5%;border-bottom:1px solid var(--line)}
 h1{margin:0;font:800 28px/1 'Barlow Condensed',sans-serif;letter-spacing:-.02em;text-transform:uppercase}
+h2{margin:0 0 4px;font:700 22px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+p.note{margin:0 0 18px;color:#5d605f;font-size:13px}
 button{font:600 13px 'Barlow',sans-serif;letter-spacing:.06em;text-transform:uppercase;border:0;background:var(--signal);color:#fff;padding:12px 18px;cursor:pointer}
-.row{display:grid;grid-template-columns:1fr 1fr}
-.panel{padding:48px 5%;display:flex;flex-direction:column;gap:40px;min-width:0}
-.panel.dark{background:var(--ink);color:var(--paper)}
-.label{font:600 11px 'Barlow',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:14px}
-.panel img{display:block;max-width:100%;height:auto}
-.sizes{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap}
-/* The favicon follows the browser theme, not the page, so show it on a tab-coloured chip that does the same. */
-.tab-chip{display:flex;align-items:flex-end;gap:24px;width:max-content;padding:14px 18px;background:#ffffff;border:1px solid var(--line)}
-@media(prefers-color-scheme:dark){.tab-chip{background:#202124;border-color:#3c4043}}
-.note{font-size:12px;opacity:.6;margin-top:10px}
-@media(max-width:760px){.row{grid-template-columns:1fr}header{padding:20px 16px}.panel{padding:32px 16px}}
+section{padding:40px 5%;border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.tile{display:flex;flex-direction:column;gap:12px;padding:22px;min-height:170px;justify-content:space-between}
+.tile img{display:block;max-width:100%;max-height:110px;width:auto;height:auto;align-self:flex-start}
+.tile span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.on-light{background:#fff;border:1px solid var(--line)}.on-dark{background:var(--ink);color:var(--paper)}
+.on-orange{background:var(--signal);color:var(--ink)}.on-white-photo{background:linear-gradient(135deg,#8a9089,#3d423f);color:#fff}
+.icons{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end}
+.icons figure{margin:0;display:grid;gap:8px;font-size:11px;color:#5d605f}
+.icons img{display:block;border:1px solid var(--line)}
+.chip{display:flex;gap:16px;align-items:flex-end;padding:14px 18px;background:#fff;border:1px solid var(--line);width:max-content}
+@media(prefers-color-scheme:dark){.chip{background:#202124;border-color:#3c4043}}
+@media(max-width:760px){header{padding:20px 16px}section{padding:28px 16px}}
 </style>
 </head>
 <body>
-<header><h1>Dawnspire brand assets</h1><button id="replay" type="button">Replay animations</button></header>
-<div class="row" id="panels"></div>
+<header><h1>Dawnspire brand kit</h1><button id="replay" type="button">Replay animations</button></header>
+<main id="kit"></main>
 <script>
 // Dev-only preview of public/brand. Not part of the site build or the Drive folder.
-const sections = [
-  ['Mark — animated', 'mark-animated', 240],
-  ['Lockup — animated', 'lockup-animated', 560],
-  ['Stacked lockup — animated', 'lockup-stacked-animated', 340],
-  ['Mark — static', 'mark', 160],
-  ['Lockup — static', 'lockup', 480],
-  ['Stacked lockup — static', 'lockup-stacked', 300],
+const shapes = [['mark', 'Mark'], ['lockup', 'Lockup'], ['lockup-stacked', 'Stacked lockup']];
+const ways = [
+  ['light', 'Light', 'on-light', 'On white and light backgrounds.'],
+  ['dark', 'Dark', 'on-dark', 'On black and dark backgrounds.'],
+  ['on-orange', 'On orange', 'on-orange', 'On the signal orange background.'],
+  ['black', 'Black only', 'on-light', 'Single-colour printing, stamps, embossing.'],
+  ['white', 'White only', 'on-white-photo', 'Watermarks on photos, single-colour on dark.'],
 ];
-const panels = document.getElementById('panels');
-for (const mode of ['light', 'dark']) {
-  const panel = document.createElement('section');
-  panel.className = 'panel' + (mode === 'dark' ? ' dark' : '');
-  panel.setAttribute('aria-label', mode === 'dark' ? 'Dark mode' : 'Light mode');
-  let html = sections.map(([label, name, w]) =>
-    `<div><div class="label">${label}</div><img${name.includes('animated') ? ' class="anim"' : ''} src="/brand/dawnspire-${name}-${mode}.svg" width="${w}" alt="${label}"></div>`).join('');
-  const s = n => `<img src="/brand/dawnspire-${n}-${mode}.svg" width`;
-  html += `<div><div class="label">Scale check</div><div class="sizes">${s('mark')}="16" alt=""><img src="/brand/dawnspire-mark-${mode}.svg" width="32" alt="">${s('mark')}="64" alt="">${s('lockup')}="120" alt="">${s('lockup-stacked')}="90" alt="">${s('lockup-stacked')}="160" alt=""></div></div>`;
-  html += `<div><div class="label">Favicon</div><div class="tab-chip"><img src="/brand/dawnspire-favicon.svg" width="16" alt=""><img src="/brand/dawnspire-favicon.svg" width="32" alt=""><img src="/brand/dawnspire-favicon.svg" width="64" alt=""></div><p class="note">Follows the browser theme, shown on a matching tab colour.</p></div>`;
-  panel.innerHTML = html;
-  panels.append(panel);
+const kit = document.getElementById('kit');
+let html = '';
+for (const [way, label, bg, note] of ways) {
+  html += `<section><h2>${label}</h2><p class="note">${note} SVG in brand/svg, PNG (1024 and 2048 px) in brand/png.</p><div class="grid">` +
+    shapes.map(([s, n]) => `<div class="tile ${bg}"><img src="/brand/svg/dawnspire-${s}-${way}.svg" alt="${n}, ${label}"><span>${n}</span></div>`).join('') + '</div></section>';
 }
+html += `<section><h2>Animated</h2><p class="note">brand/animated. Plays once and holds; reduced-motion shows the final frame.</p><div class="grid">` +
+  ['light', 'dark'].flatMap(w => shapes.map(([s, n]) => `<div class="tile ${w === 'dark' ? 'on-dark' : 'on-light'}"><img class="anim" src="/brand/animated/dawnspire-${s}-animated-${w}.svg" alt="${n} animated, ${w}"><span>${n} · ${w}</span></div>`)).join('') + '</div></section>';
+html += `<section><h2>Icons</h2><p class="note">brand/icons. The favicon follows the browser theme, shown on a matching tab colour.</p><div class="icons">
+  <figure><div class="chip"><img src="/brand/icons/dawnspire-favicon.svg" width="16" alt=""><img src="/brand/icons/dawnspire-favicon.svg" width="32" alt=""><img src="/brand/icons/dawnspire-favicon.svg" width="64" alt=""></div>Favicon</figure>
+  <figure><img src="/brand/icons/dawnspire-app-icon-512.png" width="160" alt="App icon">App icon · 512</figure>
+  <figure><img src="/brand/icons/dawnspire-profile-1024.png" width="160" alt="Profile picture" style="border-radius:50%">Profile picture · 1024 (circle crop shown)</figure>
+  <figure><img src="/brand/icons/dawnspire-og-image.png" width="380" alt="Link preview">Link preview · 1200 × 630</figure>
+</div></section>`;
+kit.innerHTML = html;
 document.getElementById('replay').addEventListener('click', () => {
   const t = Date.now();
   document.querySelectorAll('img.anim').forEach(i => { i.src = i.src.split('?')[0] + '?r=' + t; });
