@@ -60,3 +60,7 @@ a.content-disclosure{display:inline-flex;align-items:center;gap:6px;color:inheri
 /* Posters and graphics with text: show the whole image inside the frame. */
 .media-photo>img.fit-contain{object-fit:contain;background:#1d2020;padding:26px 26px 30px}
 .media-photo:hover>img.fit-contain{transform:none}
+/* Hero wordmark: the heading is only as wide as the word, so INC. sits right after the final E. */
+.hero-word h1{width:max-content;max-width:100%}
+.hero-word h1>.word-inc{right:auto;left:100%;margin-left:10px;white-space:nowrap}
+@media(max-width:760px){.hero-word h1>.word-inc{margin-left:4px}}

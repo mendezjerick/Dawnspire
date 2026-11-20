@@ -99,7 +99,7 @@ export default function Entrance({ children }: { children: ReactNode }) {
         <img className="entrance-lockup" src={asset("/brand/dawnspire-lockup-dark.svg")} alt="" />
         <div className="entrance-signature"><span /><span /><span /><span /><span /><span /><span /><span /></div>
         <div className="entrance-divider" />
-        <p>IDEAS INTO IMPACT.</p>
+        <p>FROM VISION TO VERSION ONE.</p>
       </div>
       <div className="entrance-meter" role="progressbar" aria-label="Preparing portfolio" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}><div className="entrance-meter-fill" /></div>
       <div className="entrance-counter" aria-hidden="true">
@@ -107,7 +107,7 @@ export default function Entrance({ children }: { children: ReactNode }) {
         <span className="entrance-counter-label">{progress === 100 ? 'READY TO EXPLORE' : 'PREPARING PORTFOLIO'}</span>
       </div>
       <span className="entrance-announcement" role="status">{phase === 'loading' ? 'Preparing the Dawnspire portfolio.' : 'Portfolio ready. Opening the site.'}</span>
-      <div className="entrance-bottom"><span>THINK FORWARD. BUILD BEYOND.</span><button ref={skip} onClick={enter}>Skip intro</button></div>
+      <div className="entrance-bottom"><span>THINK FORWARD. CLIMB HIGHER.</span><button ref={skip} onClick={enter}>Skip intro</button></div>
       <div className="entrance-wipe" aria-hidden="true" />
     </div>}
   </>;
