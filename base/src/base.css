@@ -1,0 +1,67 @@
+/* Base: Dawnspire's world in Operate mode. Tokens follow DESIGN.md; state colours are tuned for white text ≥4.5:1. */
+:root {
+  --signal: #f14b28;
+  --signal-dark: #bd3216;
+  --ink: #181a1b;
+  --ink-2: #2a2d2e;
+  --paper: #f5f5f2;
+  --rail-paper: #fafaf8;
+  --white: #ffffff;
+  --muted: #5d605f;
+  --line: #d9dad6;
+  --line-soft: #e6e7e1;
+  --chip: #e6e7e1;
+
+  --state-in: #2b66cc;
+  --state-in-soft: #dfe8f8;
+  --state-out: #181a1b;
+  --state-unavailable: #c23b37;
+  --state-unavailable-soft: #f6e0df;
+  --state-sick: #22764a;
+  --state-sick-soft: #dcefe4;
+  --state-overtime: #e0a526;
+  --state-overtime-soft: #fbf1d6;
+
+  --rail: 88px;
+  --radius: 0px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  font-family: 'Barlow', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; margin: 0; }
+body { min-height: 100svh; background: var(--paper); font-size: 14px; line-height: 1.5; }
+::selection { background: var(--signal); color: var(--ink); }
+input, button, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+a { color: inherit; text-underline-offset: 3px; }
+* { scrollbar-color: #b9bcb6 transparent; scrollbar-width: thin; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Display type: Barlow Condensed for headings and figures only. */
+.display { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: -.02em; line-height: .95; }
+
+/* Buttons: square, confident, ink → signal on hover (DESIGN.md). */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 22px; font-weight: 600; font-size: 14px; letter-spacing: .02em; transition: background .2s, color .2s, opacity .2s; }
+.btn-primary { background: var(--ink); color: var(--white); }
+.btn-primary:hover:not(:disabled) { background: var(--signal); color: var(--ink); }
+.btn-quiet { border: 1px solid var(--line); background: var(--white); }
+.btn-quiet:hover:not(:disabled) { border-color: var(--ink); }
+.btn:disabled { opacity: .45; }
+
+/* Fields: labels above, bottom rule, signal on focus (matches the site's contact form). */
+.field { display: grid; gap: 6px; }
+.field > span { font-size: 12px; font-weight: 600; letter-spacing: .06em; }
+.field input, .field select { height: 46px; border: 0; border-bottom: 1px solid #9ea19c; background: transparent; padding: 0 2px; font-size: 16px; outline: none; transition: border-color .2s; border-radius: 0; }
+.field input:focus, .field select:focus { border-bottom: 2px solid var(--signal); }
+.field input[aria-invalid="true"] { border-bottom-color: var(--state-unavailable); }
+.hint { font-size: 12px; color: var(--muted); }
+.error-text { font-size: 13px; color: var(--state-unavailable); }
+.link-btn { text-decoration: underline; text-underline-offset: 3px; color: var(--muted); font-size: 12px; }
+.link-btn:hover { color: var(--ink); }
+.boot { min-height: 100svh; background: var(--paper); }

@@ -6,6 +6,18 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"],
       "port": 5173
+    },
+    {
+      "name": "base-server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "server", "run", "dev"],
+      "port": 5175
+    },
+    {
+      "name": "base",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "base", "run", "dev"],
+      "port": 5174
     }
   ]
 }

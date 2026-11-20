@@ -1,22 +1,42 @@
-# Dawnspire Inc. Portfolio
+# Dawnspire Inc.
 
-A responsive React + TypeScript company portfolio inspired by the supplied Endfield reference, adapted to a right-side navigation rail and a red-orange, white, charcoal and grey identity.
+Two apps in one repository (addresses are documented in [DOMAINS.md](DOMAINS.md)):
 
-## Run
-- `npm install`
-- `npm run dev`
-- `npm run build`
+| App | Folder | Will live at | Local |
+| --- | --- | --- | --- |
+| Public company site | repo root (`src/`, `public/`) | `dawnspire.cc` | http://localhost:5173 |
+| Base: member, HR and admin workspace | `base/` (app) + `server/` (API) | `base.dawnspire.cc` | http://localhost:5174 |
 
-## Content
-Edit `src/App.tsx` to replace the sample projects, journal items, roadmap phases, founder profiles, and contact details. The board contains exactly three founders. Sample software interface previews are original HTML/CSS illustrations.
+## Public site
 
-The inquiry form prepares a local copyable draft. It does not send messages. Connect a real address or server endpoint when approved company contact information is available. No visitor data is persisted or transmitted.
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build
+```
 
-## Motion
-CSS transitions, perspective artwork, cinematic hero reveal, native smooth section navigation, active-section tracking and reduced-motion support. The original reference's proprietary videos and character assets are not included.
+React + TypeScript + Vite, with a right-side navigation rail and a red-orange, white, charcoal and grey identity. The site loads its projects, media, calendar and personnel from what the admin publishes in Base; when Base is unreachable it falls back to the built-in content in `src/content.ts`. Set `VITE_BASE_API` (Base's address) and `VITE_BASE_ORIGIN` when building for dawnspire.cc.
+
+The contact form opens the visitor's email app addressed to `dawnspire.office@gmail.com`, with a copyable fallback. The loading entrance's progress tests: `node --test tests/entrance-progress.test.mjs`.
+
+## Base
+
+```bash
+npm install --prefix server
+npm install --prefix base
+npm run base:setup-admin   # once: creates the single admin account (you type the password)
+npm run base:server        # API on http://127.0.0.1:5175
+npm run base:dev           # app on http://localhost:5174
+npm run base:test          # server tests
+```
+
+- **Admin** (one account): edits and publishes the public site's content with a live preview, and creates HR accounts.
+- **HR**: creates member accounts, resets passwords, corrects attendance (every change is logged), exports CSV. The inbox exists but is not connected yet.
+- **Members**: time in, time out, unavailable, sick and overtime from the Overview; the Time page shows the team's week or month.
+
+Time rules, all in Manila time: regular hours Monday to Friday 8:00–12:00 and 13:00–17:00 (8 hours); timing in before 8:00 counts from 8:00; regular time ends automatically at 17:00; overtime can only start at 17:00 (any time on weekends) and ends at midnight. Unavailable and Sick are whole-day statuses visible to everyone.
+
+Data lives in `server/.local/` (SQLite and uploaded images, git-ignored). For local trials, `npm --prefix server run seed:dev` creates sample accounts and writes their passwords to `server/.local/dev-accounts.txt`. The database layer (Kysely) is written to move to Postgres by swapping the dialect in `server/src/db/index.ts`.
 
 ## Assets
-See ASSETS.md for asset origins and credits. Brand assets live in public/brand.
-
-
-The site now has an Endfield-inspired loading entrance. Refresh the local site to replay it. Progress follows hero/font readiness; Skip intro bypasses it. OS reduced motion replaces the orange wipe and zoom with a short fade. Progress regression tests: `node --test tests/entrance-progress.test.mjs`.
+See [ASSETS.md](ASSETS.md) for origins and credits. Brand assets live in `public/brand`.
