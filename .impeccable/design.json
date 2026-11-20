@@ -142,14 +142,29 @@
         "purpose": "Hero and project entrance"
       },
       {
-        "value": "1.9s",
+        "value": "1.15s",
         "name": "hero-reveal",
-        "purpose": "Scale and blur reveal"
+        "purpose": "Hero settling as loader clears"
       },
       {
         "value": ".55s",
         "name": "content-in",
         "purpose": "Project content entrance"
+      },
+      {
+        "value": ".64s cubic-bezier(.8,0,.5,1)",
+        "purpose": "Right-origin signal field masks loader",
+        "name": "entrance-wipe"
+      },
+      {
+        "value": ".66s",
+        "purpose": "Signal field fades to portfolio",
+        "name": "entrance-release"
+      },
+      {
+        "value": ".16s",
+        "purpose": "Opacity-only reduced-motion release",
+        "name": "entrance-reduced"
       }
     ],
     "breakpoints": [
@@ -186,7 +201,20 @@
         "name": "phone-artwork",
         "purpose": "Concept device depth"
       }
-    ]
+    ],
+    "entrance": {
+      "skip": "Always available",
+      "wordmark": "Animated dark lockup from public/brand",
+      "counterMobile": "40px",
+      "mobileBreakpoint": "760px",
+      "secondaryText": "#a9aaa8",
+      "track": "#252827",
+      "maxWaitMs": 6000,
+      "background": "#141515",
+      "progressSource": "Settled hero decode and critical font tasks",
+      "progressText": "#b8bbb5",
+      "counterDesktop": "52px"
+    }
   },
   "schemaVersion": 2,
   "components": [

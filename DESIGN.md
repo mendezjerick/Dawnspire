@@ -141,7 +141,7 @@ Structural surfaces are flat: tonal differences and thin rules establish hierarc
 
 ## Shapes
 
-Portfolio buttons, fields, tags, and structural panels are square. Thin rules, crosshairs, triangular brand geometry, and square status indicators recur. Rounded windows (7px), device shells (28px), circular indicators, and orbital ellipses are confined to product illustrations. Portraits use rectangular crops and registration lines.
+Portfolio buttons, fields, tags, and structural panels are square. Thin rules, crosshairs, stepped 45° brand geometry, and square status indicators recur. Rounded windows (7px), device shells (28px), circular indicators, and orbital ellipses are confined to product illustrations. Portraits use rectangular crops and registration lines.
 
 ## Components
 
@@ -167,7 +167,7 @@ Filters and search update a selected concept stage, index, and previous/next act
 Six month columns contain square labeled phase bars. Signal denotes in progress; darker grey completed; lighter grey planned. A visible legend accompanies color. Selecting a bar exposes milestone details.
 
 ### Motion
-The hero reveals over 1.9s with scale/blur and cubic-bezier(.16,1,.3,1). Project content enters over 0.55s; most state changes take 0.25s. The visible motion toggle disables animation, transitions, and smooth scrolling. The implementation also respects prefers-reduced-motion.
+After the entrance overlay begins clearing, the hero settles over 1.15s with scale/blur and cubic-bezier(.16,1,.3,1); the title opens through a crop mask over 0.8s. Project content enters over 0.55s; most state changes take 0.25s. The visible motion toggle disables animation, transitions, and smooth scrolling. The implementation also respects prefers-reduced-motion.
 
 ## Do's and Don'ts
 
@@ -181,3 +181,8 @@ The hero reveals over 1.9s with scale/blur and cubic-bezier(.16,1,.3,1). Project
 - **Don't** introduce a competing brand accent outside red-orange and established neutrals.
 - **Don't** turn structural controls into pills.
 - **Don't** present concepts, stock photographs, or placeholder biographies as company achievements.
+
+### Loading Entrance
+An authored dark-to-signal-to-hero sequence adapted from the Endfield loading screen. The brand area plays the animated dark Dawnspire lockup from public/brand. Desktop progress fills a 10px right-edge rail; mobile fills a 7px horizontal rail 124px from the bottom. Percentage movement follows settled critical readiness tasks, smoothed with a 130ms time constant; the value is task completion, not byte download progress. Counter typography is Barlow Condensed 52px desktop / 40px mobile. Completion holds 180ms, wipes orange from the right over 640ms using cubic-bezier(.8,0,.5,1), then fades over 660ms. Reduced motion substitutes a 160ms opacity release, including if the preference changes during the wipe.
+
+The surface uses #141515, #252827, #555a53, #707570, #a9aaa8 and #b8bbb5 as intentional dark-surface neutrals. Technical metadata uses 7–13px according to the reference; primary progress and the skip control remain prominent. Backdrop blur is bounded to 10px and only runs during entry. Critical tasks have a 6s escape deadline. Skip intro is always available; underlying content is inert and document scroll is locked only while the entrance is present. CSS honors the OS reduced-motion preference. No perpetual loops or audio.
