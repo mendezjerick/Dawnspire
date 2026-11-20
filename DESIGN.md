@@ -124,7 +124,7 @@ The desktop canvas reserves 88px for a fixed right rail. It expands to 112px fro
 
 Content sections generally use 5% horizontal gutters, 95px top and 90px bottom spacing; mobile uses 6% gutters and 55px section padding. The project stage uses a 1.5:1 grid, media an asymmetric image/story grid, contact two columns, and founders three columns. These stack at 760px. The project index changes from four to two columns. Timeline content scrolls horizontally to preserve legibility.
 
-The hero layers full-height architectural artwork, an enormous wordmark, technical annotations, and grounded caption/status blocks. Desktop height is max(800px, 100svh), capped at 1200px; compact breakpoints use explicit 850px, 820px, and 780px heights.
+The hero layers full-height background artwork, an enormous wordmark, technical annotations, and grounded caption/status blocks. Desktop height is max(800px, 100svh), capped at 1200px; compact breakpoints use explicit 850px, 820px, and 780px heights.
 
 **The Right Rail Rule.** Keep navigation fixed to the right and reserve its width in the main content.
 

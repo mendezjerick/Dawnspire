@@ -16,7 +16,7 @@ The inquiry form prepares a local copyable draft. It does not send messages. Con
 CSS transitions, perspective artwork, cinematic hero reveal, native smooth section navigation, active-section tracking and reduced-motion support. The original reference's proprietary videos and character assets are not included.
 
 ## Assets
-See ASSETS.md and .impeccable/hero-prompt.txt for origins and the full generated hero prompt. The hero was produced with built-in ImageGen.
+See ASSETS.md for asset origins and credits. Brand assets live in public/brand.
 
 
 The site now has an Endfield-inspired loading entrance. Refresh the local site to replay it. Progress follows hero/font readiness; Skip intro bypasses it. OS reduced motion replaces the orange wipe and zoom with a short fade. Progress regression tests: `node --test tests/entrance-progress.test.mjs`.

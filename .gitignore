@@ -1,5 +1,4 @@
 node_modules/
 dist/
 *.local
-.impeccable/review/
 *.tsbuildinfo
