@@ -4,9 +4,12 @@
 .ed-state.pending { color: #8a5f00; }
 .ed-state.live { color: var(--state-sick); }
 
-.ed { display: grid; grid-template-columns: minmax(360px, 440px) minmax(0, 1fr); gap: 28px; align-items: start; }
-.ed-panel { min-width: 0; }
-.ed-tabs { border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+/* The editor is a fixed-height workspace: the header stays, the form and the preview scroll on their own. */
+.ed-page { height: calc(100svh - 44px - 72px); display: flex; flex-direction: column; }
+.ed-page > .page-head { flex: none; margin-bottom: 20px; }
+.ed { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(360px, 440px) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: 28px; }
+.ed-panel { position: relative; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-right: 10px; scrollbar-gutter: stable; }
+.ed-tabs { position: sticky; top: 0; z-index: 2; background: var(--paper); border-bottom: 1px solid var(--line); margin-bottom: 4px; }
 .ed-dot { width: 6px; height: 6px; background: var(--state-overtime); align-self: center; }
 .ed-list { list-style: none; padding: 0; border-top: 1px solid #c7cdbf; }
 .ed-list > li { border-bottom: 1px solid var(--line); }
@@ -26,7 +29,7 @@ li.open .ed-num { color: var(--signal-dark); }
 .ed-field textarea { min-height: 96px; border: 1px solid var(--line); background: var(--paper); padding: 10px; font-size: 14px; line-height: 1.5; resize: vertical; outline: none; }
 .ed-field textarea:focus { border-color: var(--signal); }
 .ed-field input, .ed-field select { font-size: 15px; height: 40px; }
-.ed-add { margin-top: 16px; gap: 8px; }
+.ed-add { margin: 16px 0 24px; gap: 8px; }
 
 .ed-image { display: flex; gap: 14px; align-items: center; }
 .ed-image img, .ed-image-empty { width: 132px; height: 88px; object-fit: cover; background: var(--chip); flex: none; }
@@ -42,18 +45,22 @@ li.open .ed-num { color: var(--signal-dark); }
 .ed-phase button { width: 32px; height: 32px; display: grid; place-items: center; color: var(--muted); }
 .ed-phases .btn { justify-self: start; min-height: 36px; padding: 0 12px; font-size: 13px; gap: 6px; }
 
-.ed-preview { position: sticky; top: 16px; min-width: 0; }
+.ed-preview { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
 .ed-preview-bar { display: flex; align-items: center; gap: 18px; justify-content: space-between; margin-bottom: 8px; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
 .ed-preview-bar .tabs { gap: 18px; }
 .ed-preview-bar .tabs button { padding: 6px 0; font-size: 12px; align-items: center; }
 .ed-open { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
-.ed-frame { height: calc(100svh - 230px); min-height: 520px; background: var(--ink); border: 1px solid var(--line); display: flex; justify-content: center; overflow: hidden; }
+.ed-frame { flex: 1; min-height: 0; background: var(--ink); border: 1px solid var(--line); display: flex; justify-content: center; overflow: hidden; }
 .ed-frame iframe { border: 0; background: var(--paper); }
 /* Desktop renders the site at 1440px and scales it to fit; phone renders at 390px. */
-.ed-frame.desktop iframe { width: 1440px; height: calc((100svh - 230px) / var(--ed-scale, .5)); min-height: calc(520px / var(--ed-scale, .5)); transform: scale(var(--ed-scale, .5)); transform-origin: top center; flex: none; }
+.ed-frame.desktop iframe { width: 1440px; height: calc(var(--ed-h, 600px) / var(--ed-scale, .5)); transform: scale(var(--ed-scale, .5)); transform-origin: top center; flex: none; }
 .ed-frame.phone iframe { width: 390px; height: 100%; }
 
+/* Stacked on narrow screens: back to normal page scrolling. */
 @media (max-width: 1200px) {
-  .ed { grid-template-columns: 1fr; }
-  .ed-preview { position: static; }
+  .ed-page { height: auto; display: block; }
+  .ed { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .ed-panel { overflow: visible; padding-right: 0; }
+  .ed-frame { height: 70svh; flex: none; }
 }
+@media (max-height: 640px) and (min-width: 1201px) { .ed-page { height: auto; min-height: 640px; } }

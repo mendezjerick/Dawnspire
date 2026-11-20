@@ -72,10 +72,21 @@ export function SiteEditor() {
   const frame = useRef<HTMLIFrameElement>(null);
   const timer = useRef<number | undefined>(undefined);
   const box = useRef<HTMLDivElement>(null);
+  const scaleRef = useRef(0.5);
+  const deviceRef = useRef<'desktop' | 'phone'>('desktop');
+  // Tell the preview how much it is scaled so wheel scrolling feels normal.
+  const postScale = useCallback(() => {
+    frame.current?.contentWindow?.postMessage({ type: 'dawnspire-scale', scale: deviceRef.current === 'desktop' ? scaleRef.current : 1 }, SITE_ORIGIN);
+  }, []);
   // Scale the 1440px desktop preview to the panel width.
   useEffect(() => {
     const el = box.current; if (!el) return;
-    const ro = new ResizeObserver(([e]) => el.style.setProperty('--ed-scale', String(Math.min(1, e.contentRect.width / 1440))));
+    const ro = new ResizeObserver(([e]) => {
+      scaleRef.current = Math.min(1, e.contentRect.width / 1440);
+      el.style.setProperty('--ed-scale', String(scaleRef.current));
+      el.style.setProperty('--ed-h', `${e.contentRect.height}px`);
+      postScale();
+    });
     ro.observe(el); return () => ro.disconnect();
   }, []);
 
@@ -97,10 +108,11 @@ export function SiteEditor() {
     if (scrollTo) win.postMessage({ type: 'dawnspire-scroll', target: scrollTo }, SITE_ORIGIN);
   }, []);
   useEffect(() => {
-    const onMsg = (e: MessageEvent) => { if (e.origin === SITE_ORIGIN && e.data?.type === 'dawnspire-preview-ready') sendPreview(drafts, SECTIONS.find(s => s.key === section)!.anchor); };
+    const onMsg = (e: MessageEvent) => { if (e.origin === SITE_ORIGIN && e.data?.type === 'dawnspire-preview-ready') { sendPreview(drafts, SECTIONS.find(s => s.key === section)!.anchor); postScale(); } };
     addEventListener('message', onMsg);
     return () => removeEventListener('message', onMsg);
-  }, [drafts, section, sendPreview]);
+  }, [drafts, section, sendPreview, postScale]);
+  useEffect(() => { deviceRef.current = device; postScale(); }, [device, postScale]);
   useEffect(() => { sendPreview(drafts); }, [drafts, sendPreview]);
   useEffect(() => { sendPreview(drafts, SECTIONS.find(s => s.key === section)!.anchor); setOpen(0); }, [section]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -139,7 +151,7 @@ export function SiteEditor() {
     !managed ? (m ? 'Draft saved · not published yet' : 'Not published from Base yet · the site shows its built-in content') : unpublished ? 'Draft saved · not published' : `Published ${new Date(m!.publishedAt!).toLocaleString('en-US', { timeZone: 'Asia/Manila', dateStyle: 'medium', timeStyle: 'short' })}`;
 
   return (
-    <>
+    <div className="ed-page">
       <PageHead title="Site" aside={
         <div className="ed-publish">
           <span className={`ed-state ${unpublished ? 'pending' : 'live'}`} role="status">{statusText}</span>
@@ -196,7 +208,7 @@ export function SiteEditor() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -33,14 +33,21 @@
   -webkit-font-smoothing: antialiased;
 }
 * { box-sizing: border-box; margin: 0; }
-body { min-height: 100svh; background: var(--paper); font-size: 14px; line-height: 1.5; }
+body { min-height: 100svh; background: var(--paper); font-size: 14px; line-height: 1.5; overflow-x: clip; }
 ::selection { background: var(--signal); color: var(--ink); }
 input, button, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; background: none; border: 0; }
 button:disabled { cursor: not-allowed; }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 a { color: inherit; text-underline-offset: 3px; }
-* { scrollbar-color: #b9bcb6 transparent; scrollbar-width: thin; }
+/* Scrollbars and scrolling from the main site: 5px bars, signal thumb on a pale track. */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #deded9; }
+::-webkit-scrollbar-thumb { background: var(--signal); }
+/* Firefox has no ::-webkit-scrollbar; give it the same colours. Chromium keeps the rules above. */
+@supports not selector(::-webkit-scrollbar) { * { scrollbar-color: var(--signal) #deded9; scrollbar-width: thin; } }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Display type: Barlow Condensed for headings and figures only. */

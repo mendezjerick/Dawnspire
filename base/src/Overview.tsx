@@ -23,7 +23,8 @@ export function Overview({ user }: { user: User }) {
   const [board, setBoard] = useState<BoardPerson[] | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const now = useNow(today?.now, 1000);
+  // The page refreshes every 30s; only the clock ticks every second, so scrolling stays smooth.
+  const now = useNow(today?.now, 30_000);
 
   const load = useCallback(async () => {
     try {
@@ -58,10 +59,7 @@ export function Overview({ user }: { user: User }) {
   return (
     <>
       <PageHead title={`${greeting(now)}, ${first}`} aside={
-        <div className="ov-clock" aria-label="Manila time">
-          <p className="display">{fmtTime(now)}</p>
-          <span>{fmtDay(now)} · Manila</span>
-        </div>
+        <LiveClock serverNow={today?.now} />
       }>{statusLine}</PageHead>
 
       {error && <p className="notice error" role="alert">{error}</p>}
@@ -120,6 +118,16 @@ export function Overview({ user }: { user: User }) {
           </ul>}
       </section>
     </>
+  );
+}
+
+function LiveClock({ serverNow }: { serverNow?: string }) {
+  const now = useNow(serverNow, 1000);
+  return (
+    <div className="ov-clock" aria-label="Manila time">
+      <p className="display">{fmtTime(now)}</p>
+      <span>{fmtDay(now)} · Manila</span>
+    </div>
   );
 }
 

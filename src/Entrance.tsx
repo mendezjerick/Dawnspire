@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { advanceProgress } from './entranceProgress';
+import { asset } from './asset';
 import './entrance.css';
 
 type Phase = 'loading' | 'complete' | 'wipe' | 'reveal' | 'done';
@@ -24,7 +25,7 @@ export default function Entrance({ children }: { children: ReactNode }) {
   useEffect(() => {
     let cancelled = false;
     const hero = new Image();
-    hero.src = '/assets/background.jpg';
+    hero.src = asset('/assets/background.jpg');
     const imageReady = hero.decode().catch(() => undefined);
     const fontReady = (font: string) => document.fonts.load(font).catch(() => undefined);
     const tasks = [
@@ -95,7 +96,7 @@ export default function Entrance({ children }: { children: ReactNode }) {
       <div className="entrance-noise" aria-hidden="true"><span /><span /><span /></div>
       <div className="entrance-top"><span>DAWNSPIRE INC.</span><span>SOFTWARE DEVELOPMENT</span></div>
       <div className="entrance-brand" aria-hidden="true">
-        <img className="entrance-lockup" src="/brand/dawnspire-lockup-dark.svg" alt="" />
+        <img className="entrance-lockup" src={asset("/brand/dawnspire-lockup-dark.svg")} alt="" />
         <div className="entrance-signature"><span /><span /><span /><span /><span /><span /><span /><span /></div>
         <div className="entrance-divider" />
         <p>IDEAS INTO IMPACT.</p>

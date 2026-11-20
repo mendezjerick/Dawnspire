@@ -5,6 +5,7 @@ import type { LucideIcon } from 'lucide-react';
 import './styles.css';
 import { BrandLogo } from './BrandLogo';
 import { useSiteContent } from './useSiteContent';
+import { asset } from './asset';
 import type { Project } from './content';
 
 const navigation: {id:string;label:string;icon:LucideIcon}[] = [
@@ -26,7 +27,7 @@ function Crosshair({className=''}:{className?:string}) {return <span className={
 function ProductArt({project,large=false}:{project:Project;large?:boolean}) {
  return <div className={`product-art art-${project.theme} ${large?'art-large':''}`} aria-hidden="true">
   {project.image?<img className="art-shot" src={project.image} alt=""/>
-  :project.theme==='cospheria'?<div className="art-brand"><img src="/assets/projects/cospheria-wordmark.svg" alt=""/></div>
+  :project.theme==='cospheria'?<div className="art-brand"><img src={asset("/assets/projects/cospheria-wordmark.svg")} alt=""/></div>
   :<div className="art-soon"><strong>{project.name}</strong><span>Coming soon</span></div>}
   <div className="art-tag">DAWNSPIRE / {project.name}</div><Crosshair className="art-cross"/>
  </div>
@@ -57,7 +58,7 @@ export default function App(){
  <aside className={`nav-rail ${menuOpen?'is-open':''}`} aria-label="Site navigation"><a className="rail-brand" href="#home" aria-label="Dawnspire Inc. home" onClick={e=>{e.preventDefault();go('home')}}><Brand small/></a><span className="rail-line"/><nav>{navigation.map(({id,label,icon:Icon},i)=><a key={id} href={`#${id}`} className={active===id?'active':''} aria-current={active===id?'location':undefined} onClick={e=>{e.preventDefault();go(id)}}><Icon size={21} strokeWidth={1.65}/><span>{label}</span><small>0{i+1}</small></a>)}</nav><div className="rail-bottom"><button className="motion-toggle" onClick={()=>setMotion(!motion)} aria-pressed={motion}>{motion?<Pause size={15}/>:<Play size={15}/>}<span>Motion {motion?'on':'off'}</span></button><button className="rail-contact" onClick={()=>go('contact')}><Radio size={18}/><span>Let’s talk</span></button><div className="rail-meta"><span>EST. THE NEXT</span><Globe2 size={15}/></div></div></aside>
  <main>
  <section id="home" className="hero" aria-labelledby="hero-title">
-  <div className="hero-scene"><img src="/assets/background.jpg" className="hero-image" alt="Bright futuristic laboratory interior with a suspended staircase" fetchPriority="high"/><div className="hero-image-wash"/></div>
+  <div className="hero-scene"><img src={asset("/assets/background.jpg")} className="hero-image" alt="Bright futuristic laboratory interior with a suspended staircase" fetchPriority="high"/><div className="hero-image-wash"/></div>
   <header className="hero-top"><Brand/><span className="top-descriptor">SOFTWARE DEVELOPMENT<br/>IDEAS INTO IMPACT.</span><span className="edition">THE DAWNSPIRE PORTFOLIO<br/><b>2026 — ONWARD</b></span></header>
   <div className="hero-word"><h1 id="hero-title">DAWNSPIRE<span className="word-inc">INC.</span></h1><div className="hero-word-bottom"><span>BEYOND THE EXPECTED.</span><span>DESIGNED TO MOVE FORWARD.</span></div></div>
   <div className="hero-annotation"><Crosshair/><span>A NEW PERSPECTIVE<br/>ON WHAT COMES NEXT.</span></div>
