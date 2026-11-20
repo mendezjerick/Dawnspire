@@ -1,6 +1,6 @@
 # Asset provenance
 - assets/background.jpg: "Sci-fi Backgrounds" by spiralatlas, https://spiralatlas.itch.io/scifi-backgrounds ; credited in the contact section footer.
-- assets/media-agriwise-hack4aprogress.jpg: Agriwise at DOST Hack4AProgress 2026 (2nd Runner-Up); photo by DOST CALABARZON, credited on the site.
+- assets/media-agriwise-hack4aprogress.jpg: DOST CALABARZON announcement graphic for Hack4AProgress 2026 (Agriwise, 2nd Runner-Up); credited on the site and shown uncropped.
 - assets/media-cospheria-cos7.jpg: Cospheria and Cos7 partnership event; photo by Jeruskie, credited on the site.
 - Fonts: Google Fonts, Barlow and Barlow Condensed, self-hosted.
 - assets/projects/cospheria-wordmark.svg: Cospheria brand wordmark, from the Cospheria design system.

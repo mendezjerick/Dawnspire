@@ -8,7 +8,8 @@ export type Project = {
   description: string; stack: string[]; theme: string; detail: string; phase: string;
   image?: string; link?: string; note?: string;
 };
-export type MediaItem = { title: string; category: string; image: string; caption: string; alt: string; credit: string };
+/** fit: 'contain' shows the whole image (for graphics with text); default 'cover' fills the frame. */
+export type MediaItem = { title: string; category: string; image: string; caption: string; alt: string; credit: string; fit?: 'cover' | 'contain' };
 export type Phase = { label: string; from: string | null; to: string; phase: 'complete' | 'active' | 'planned' };
 export type TimelineRow = { project: string; kind: string; phases: Phase[]; deadline?: string };
 export type Person = { name: string; role: string; bio: string; image?: string; group: 'board' | 'team' };
@@ -23,7 +24,7 @@ export const defaultProjects: Project[] = [
 ];
 
 export const defaultMedia: MediaItem[] = [
-  {title:'2nd Runner-Up',category:'DOST Hack4AProgress 2026',image:'/assets/media-agriwise-hack4aprogress.jpg',caption:'Agriwise placed 2nd Runner-Up at the DOST Hack4AProgress 2026 hackathon. The team took the stage to present the project and answer the judges\u2019 questions.',alt:'The Agriwise team on stage during the Q&A at DOST Hack4AProgress 2026',credit:'Photo: DOST CALABARZON'},
+  {title:'2nd Runner-Up',category:'DOST Hack4AProgress 2026',image:'/assets/media-agriwise-hack4aprogress.jpg',fit:'contain',caption:'Agriwise placed 2nd Runner-Up at DOST Hack4AProgress 2026, held on September 10, 2026 in Lucena City, Quezon, one of three AI-driven teams recognised at the hackathon.',alt:'DOST CALABARZON announcement reading \u201cDriven by AI, three visionary teams triumph at Hack4AProgress 2026\u201d, with photos of the team presenting',credit:'Image: DOST CALABARZON'},
   {title:'Cospheria \u00d7 Cos7',category:'First partnership event',image:'/assets/media-cospheria-cos7.jpg',caption:'Cospheria\u2019s first-ever partnership event, with Cos7. A day with the cosplay community the app was built for.',alt:'Cosplayers and attendees posing together at the Cospheria and Cos7 partnership event',credit:'Photo: Jeruskie'},
 ];
 
@@ -40,9 +41,9 @@ export const defaultTimeline: TimelineRow[] = [
 ];
 
 export const defaultPersonnel: Person[] = [
-  { name: 'Founder 01', role: 'Co-founder / Board of Directors', bio: 'Name and biography to be announced.', group: 'board' },
-  { name: 'Founder 02', role: 'Co-founder / Board of Directors', bio: 'Name and biography to be announced.', group: 'board' },
-  { name: 'Founder 03', role: 'Co-founder / Board of Directors', bio: 'Name and biography to be announced.', group: 'board' },
+  { name: 'Ross Cedric R. Nazareno', role: 'President and Head of External Affairs', bio: 'Co-founder and member of the Board of Directors.', group: 'board' },
+  { name: 'Jerick E. Mendez', role: 'Software Architect and Agile Delivery Manager', bio: 'Co-founder and member of the Board of Directors.', group: 'board' },
+  { name: 'Nick Narry S. Mendoza', role: 'Lead Developer', bio: 'Co-founder and member of the Board of Directors.', group: 'board' },
 ];
 
 export const defaultContent: SiteContent = { projects: defaultProjects, media: defaultMedia, timeline: defaultTimeline, personnel: defaultPersonnel };

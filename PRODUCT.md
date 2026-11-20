@@ -13,4 +13,4 @@ Reference: https://endfield.gryphline.com/en-us#home. Cinematic imagery, oversiz
 ## Evidence on Hand
 Company name, industry and founder count confirmed by user. Projects are real Dawnspire products: Cospheria (live on Google Play), Meridian, BDRIS, and Agriwise (placeholder). Media shows real company moments with photo credits. Placeholder personnel content explicitly authorized. Credited third-party background art, original brand mark and code-native software concept artwork.
 ## Open Decisions
-Founder names, portraits, biographies and team details remain to be supplied. Contact opens the visitor’s email app addressed to dawnspire.office@gmail.com, with a copyable fallback.
+Founders: Ross Cedric R. Nazareno (President and Head of External Affairs), Jerick E. Mendez (Software Architect and Agile Delivery Manager), Nick Narry S. Mendoza (Lead Developer). Founder portraits, fuller biographies and team details remain to be supplied. Contact opens the visitor’s email app addressed to dawnspire.office@gmail.com, with a copyable fallback.

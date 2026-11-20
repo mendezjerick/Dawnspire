@@ -39,6 +39,7 @@ const FIELDS: Record<Exclude<Section, 'timeline'>, Field[]> = {
     { key: 'title', label: 'Title', kind: 'text', required: true },
     { key: 'category', label: 'Label above the title', kind: 'text' },
     { key: 'image', label: 'Photo', kind: 'image', required: true },
+    { key: 'fit', label: 'Framing', kind: 'select', options: ['cover', 'contain'], hint: 'Use “Show the whole image” for posters or graphics with text, so nothing is cropped.' },
     { key: 'caption', label: 'Caption', kind: 'textarea' },
     { key: 'alt', label: 'Photo description', kind: 'text', hint: 'What the photo shows, for screen readers.' },
     { key: 'credit', label: 'Photo credit', kind: 'text', hint: 'e.g. “Photo: Jeruskie”.' },
@@ -224,7 +225,7 @@ function FieldInput({ field, value, onChange }: { field: Field; value: unknown; 
     <label className="field ed-field" htmlFor={id}>
       <span>{field.label}{field.required && ' *'}</span>
       {field.kind === 'textarea' ? <textarea id={id} rows={4} value={String(value ?? '')} onChange={e => onChange(e.target.value)} />
-        : field.kind === 'select' ? <select id={id} value={String(value ?? field.options![0])} onChange={e => onChange(e.target.value)}>{field.options!.map(o => <option key={o} value={o}>{o === 'board' ? 'Board of directors' : o === 'team' ? 'The team' : o}</option>)}</select>
+        : field.kind === 'select' ? <select id={id} value={String(value ?? field.options![0])} onChange={e => onChange(e.target.value)}>{field.options!.map(o => <option key={o} value={o}>{o === 'board' ? 'Board of directors' : o === 'team' ? 'The team' : o === 'cover' ? 'Fill the frame' : o === 'contain' ? 'Show the whole image' : o}</option>)}</select>
         : field.kind === 'list' ? <input id={id} value={(value as string[] | undefined ?? []).join(', ')} onChange={e => onChange(e.target.value.split(',').map(x => x.trim()).filter(Boolean))} />
         : <input id={id} type={field.kind === 'url' ? 'url' : 'text'} value={String(value ?? '')} onChange={e => onChange(e.target.value)} required={field.required} />}
       {field.hint && <small className="hint">{field.hint}</small>}
