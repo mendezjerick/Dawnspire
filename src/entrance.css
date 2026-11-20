@@ -2,7 +2,7 @@
 .entrance-backdrop{position:absolute;inset:-16px;background:linear-gradient(90deg,#141515e6,#141515b8),url('/assets/background.jpg') center/cover;opacity:.23;filter:blur(var(--blur));transition:filter .45s linear;pointer-events:none}
 .entrance-top{position:absolute;top:34px;left:4.5%;right:4.5%;display:flex;justify-content:space-between;color:#a9aaa8;font-size:10px;letter-spacing:.13em}
 .entrance-brand{position:absolute;left:29%;top:30%;--lockup:clamp(300px,36vw,600px)}
-.entrance-lockup{display:block;width:var(--lockup);height:auto;margin:calc(var(--lockup) * -40 / 1057) 0 calc(var(--lockup) * -40 / 1057) calc(var(--lockup) * -40 / 1057)}
+.entrance-lockup{display:block;width:var(--lockup);height:auto}
 .entrance-signature{display:flex;gap:4px;margin-top:65px;width:125px;align-items:flex-end;height:15px}
 .entrance-signature>span{display:block;width:8px;height:5px;background:#707570}.entrance-signature>span:nth-child(2n){height:10px}.entrance-signature>span:nth-child(3n){height:15px;background:var(--signal)}
 .entrance-divider{height:1px;background:#555a53;width:100%;margin:18px 0}

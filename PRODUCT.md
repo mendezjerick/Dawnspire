@@ -11,6 +11,6 @@ Six sections in order: Overview/current developments; Projects with clean naviga
 ## Brand Commitments
 Reference: https://endfield.gryphline.com/en-us#home. Cinematic imagery, oversized condensed typography, technical detail and transitions. Primarily red-orange, grey, white and black. Fixed navigation on the RIGHT.
 ## Evidence on Hand
-Company name, industry and founder count confirmed by user. Placeholder project, personnel, timeline and media content explicitly authorized. Credited third-party background art, original brand mark and code-native software concept artwork; stock photographs labelled illustrative.
+Company name, industry and founder count confirmed by user. Projects are real Dawnspire products: Cospheria (live on Google Play), Meridian, BDRIS, and Agriwise (placeholder). Media shows real company moments with photo credits. Placeholder personnel content explicitly authorized. Credited third-party background art, original brand mark and code-native software concept artwork.
 ## Open Decisions
-Real projects, approved project imagery, founder names/portraits/biographies, team details, achievements, actual timelines, and contact address remain to be supplied. Contact currently prepares a local copyable draft and does not send.
+Founder names, portraits, biographies and team details remain to be supplied. Contact opens the visitor’s email app addressed to dawnspire.office@gmail.com, with a copyable fallback.

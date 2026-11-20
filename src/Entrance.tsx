@@ -95,7 +95,7 @@ export default function Entrance({ children }: { children: ReactNode }) {
       <div className="entrance-noise" aria-hidden="true"><span /><span /><span /></div>
       <div className="entrance-top"><span>DAWNSPIRE INC.</span><span>SOFTWARE DEVELOPMENT</span></div>
       <div className="entrance-brand" aria-hidden="true">
-        <img className="entrance-lockup" src="/brand/dawnspire-lockup-animated-dark.svg" alt="" />
+        <img className="entrance-lockup" src="/brand/dawnspire-lockup-dark.svg" alt="" />
         <div className="entrance-signature"><span /><span /><span /><span /><span /><span /><span /><span /></div>
         <div className="entrance-divider" />
         <p>IDEAS INTO IMPACT.</p>

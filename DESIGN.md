@@ -82,7 +82,7 @@ Large editorial surfaces carry the atmosphere; compact controls keep exploration
 - Architectural imagery and oversized condensed lettering.
 - Fixed right navigation with a red-orange active signal.
 - Square functional controls and fine technical rules.
-- Explicitly illustrative projects, media, timelines, and portraits.
+- Real products, schedule, and event photography; explicitly illustrative portraits.
 
 ## Colors
 
@@ -161,7 +161,7 @@ Search uses an unfilled square input and signal bottom border on focus. Contact 
 Centered compact brand, stacked icons and labels, bottom motion control, and signal contact action. Active/hovered items gain a pale grey ground; active icons and the outer edge marker turn signal. Scroll position updates the active section and URL hash. All six destinations remain available on compact screens.
 
 ### Project Explorer
-Filters and search update a selected concept stage, index, and previous/next actions. Empty results provide reset. Native dialogs display larger concept artwork, lock page scrolling, close with Escape, and restore prior focus. Media uses an indexed viewer and lightbox.
+Filters and search update a selected project stage, index, and previous/next actions. Empty results provide reset. Native dialogs display larger product visuals, lock page scrolling, close with Escape, and restore prior focus. Media uses an indexed viewer and lightbox.
 
 ### Timeline
 Six month columns contain square labeled phase bars. Signal denotes in progress; darker grey completed; lighter grey planned. A visible legend accompanies color. Selecting a bar exposes milestone details.
@@ -183,6 +183,6 @@ After the entrance overlay begins clearing, the hero settles over 1.15s with sca
 - **Don't** present concepts, stock photographs, or placeholder biographies as company achievements.
 
 ### Loading Entrance
-An authored dark-to-signal-to-hero sequence adapted from the Endfield loading screen. The brand area plays the animated dark Dawnspire lockup from public/brand. Desktop progress fills a 10px right-edge rail; mobile fills a 7px horizontal rail 124px from the bottom. Percentage movement follows settled critical readiness tasks, smoothed with a 130ms time constant; the value is task completion, not byte download progress. Counter typography is Barlow Condensed 52px desktop / 40px mobile. Completion holds 180ms, wipes orange from the right over 640ms using cubic-bezier(.8,0,.5,1), then fades over 660ms. Reduced motion substitutes a 160ms opacity release, including if the preference changes during the wipe.
+An authored dark-to-signal-to-hero sequence adapted from the Endfield loading screen. The brand area shows the static dark Dawnspire lockup from public/brand. Desktop progress fills a 10px right-edge rail; mobile fills a 7px horizontal rail 124px from the bottom. Percentage movement follows settled critical readiness tasks, smoothed with a 130ms time constant; the value is task completion, not byte download progress. Counter typography is Barlow Condensed 52px desktop / 40px mobile. Completion holds 180ms, wipes orange from the right over 640ms using cubic-bezier(.8,0,.5,1), then fades over 660ms. Reduced motion substitutes a 160ms opacity release, including if the preference changes during the wipe.
 
 The surface uses #141515, #252827, #555a53, #707570, #a9aaa8 and #b8bbb5 as intentional dark-surface neutrals. Technical metadata uses 7–13px according to the reference; primary progress and the skip control remain prominent. Backdrop blur is bounded to 10px and only runs during entry. Critical tasks have a 6s escape deadline. Skip intro is always available; underlying content is inert and document scroll is locked only while the entrance is present. CSS honors the OS reduced-motion preference. No perpetual loops or audio.

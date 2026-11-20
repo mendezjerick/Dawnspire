@@ -204,7 +204,7 @@
     ],
     "entrance": {
       "skip": "Always available",
-      "wordmark": "Animated dark lockup from public/brand",
+      "wordmark": "Static dark lockup from public/brand",
       "counterMobile": "40px",
       "mobileBreakpoint": "760px",
       "secondaryText": "#a9aaa8",
